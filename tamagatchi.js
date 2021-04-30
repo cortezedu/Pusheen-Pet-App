@@ -50,7 +50,7 @@ petButton.addEventListener("click", (e)=> {
     }
   } else if (happiness > 90) {
     petImage.innerHTML = '<img src="img/very-happy.gif" />'
-    petStatus.innerHTML = "Oppa Gangnum Style!!"
+    petStatus.innerHTML = "Oppa Gangnam Style!!"
   } else if (happiness < 40) {
     petImage.innerHTML = '<img src="img/lazy.gif" />'
     petStatus.innerHTML = "I'm bored!!"
@@ -142,7 +142,7 @@ bathButton.addEventListener("click", (e)=> {
 singButton.addEventListener("click", (e)=> {
   energy += 10
   cleaness -= 2
-  happiness -= 2
+  happiness += 2
   fullness -= 3
   
   if (happiness < 1 | fullness < 1 | cleaness < 1) {
