@@ -28,44 +28,148 @@ petName.addEventListener("change", (e)=> {
 
 petButton.addEventListener("click", (e)=> {
   happiness += 10
-  happyLabel.innerHTML = `${happiness}`
   cleaness -= 5
-  cleanLabel.innerHTML = `${cleaness}`
   fullness -= 2
-  fullLabel.innerHTML = `${fullness}`
   energy -= 5
+  if (fullness < 1 | cleaness < 1 | energy < 1) {
+    petButton.disabled = "True"
+    feedButton.disabled = "True"
+    bathButton.disabled = "True"
+    singButton.disabled = "True"
+    petImage.innerHTML = '<img src="img/ghost.gif" />'
+    petStatus.innerHTML = "Goodbye..."
+  } else if (fullness < 40 | cleaness < 40 | energy < 40) {
+    petImage.innerHTML = '<img src="img/angry.gif" />'
+    happiness -= 5
+    if (fullness < 40) {
+      petStatus.innerHTML = "I'm too hungry!"
+    } else if (cleaness < 40) {
+      petStatus.innerHTML = "Clean me!"
+    } else if (energy < 40) {
+      petStatus.innerHTML = "I'm too tired!"
+    }
+  } else if (happiness > 90) {
+    petImage.innerHTML = '<img src="img/very-happy.gif" />'
+    petStatus.innerHTML = "Oppa Gangnum Style!!"
+  } else if (happiness < 40) {
+    petImage.innerHTML = '<img src="img/lazy.gif" />'
+    petStatus.innerHTML = "I'm bored!!"
+  } else {
+    petImage.innerHTML = '<img src="img/pet.gif" />'
+    petStatus.innerHTML = "I like pets!"
+  }
+  
+  happyLabel.innerHTML = `${happiness}`
+  cleanLabel.innerHTML = `${cleaness}`
+  fullLabel.innerHTML = `${fullness}`
   energyLabel.innerHTML = `${energy}`
 })
 
 feedButton.addEventListener("click", (e)=> {
   fullness += 10
-  fullLabel.innerHTML = `${fullness}`
   happiness += 2
-  happyLabel.innerHTML = `${happiness}`
   cleaness -= 5
-  cleanLabel.innerHTML = `${cleaness}`
   energy -= 10
+  if (happiness < 1 | cleaness < 1 | energy < 1) {
+    petButton.disabled = "True"
+    feedButton.disabled = "True"
+    bathButton.disabled = "True"
+    singButton.disabled = "True"
+    petImage.innerHTML = '<img src="img/ghost.gif" />'
+    petStatus.innerHTML = "Goodbye..."
+  } else if (happiness < 40 | cleaness < 40 | energy < 40) {
+    petImage.innerHTML = '<img src="img/angry.gif" />'
+    happiness -= 5
+    if (happiness < 40) {
+      petStatus.innerHTML = "I'm too upset!"
+    } else if (cleaness < 40) {
+      petStatus.innerHTML = "Clean me!"
+    } else if (energy < 40) {
+      petStatus.innerHTML = "I'm too tired!"
+    }
+  } else if (fullness < 40) {
+    petImage.innerHTML = '<img src="img/very-hungry.gif" />'
+    petStatus.innerHTML = "Yummy!"
+  } else if (fullness < 100) {
+    petImage.innerHTML = '<img src="img/little-hungry.gif" />'
+    petStatus.innerHTML = "This is yummy! I'm getting full."
+  } else {
+    fullness -= 10
+    petImage.innerHTML = '<img src="img/too-full.gif" />'
+    petStatus.innerHTML = "No more please! I'm too full."
+  }
+  
+  happyLabel.innerHTML = `${happiness}`
+  cleanLabel.innerHTML = `${cleaness}`
+  fullLabel.innerHTML = `${fullness}`
   energyLabel.innerHTML = `${energy}`
 })
 
 bathButton.addEventListener("click", (e)=> {
   cleaness += 10
-  cleanLabel.innerHTML = `${cleaness}`
   energy += 5
-  energyLabel.innerHTML = `${energy}`
-  happiness -= 5
-  happyLabel.innerHTML = `${happiness}`
+  happiness -= 3
   fullness -= 3
+  if (happiness < 1 | fullness < 1 | energy < 1) {
+    petButton.disabled = "True"
+    feedButton.disabled = "True"
+    bathButton.disabled = "True"
+    singButton.disabled = "True"
+    petImage.innerHTML = '<img src="img/ghost.gif" />'
+    petStatus.innerHTML = "Goodbye..."
+  } else if (happiness < 40 | fullness < 40 | energy < 40) {
+    petImage.innerHTML = '<img src="img/angry.gif" />'
+    cleaness -= 5
+    happiness -= 2
+    if (happiness < 40) {
+      petStatus.innerHTML = "I'm not in the mood for a bath!"
+    } else if (fullness < 40) {
+      petStatus.innerHTML = "I'm too hungry!"
+    } else if (energy < 40) {
+      petStatus.innerHTML = "I'm too tired!"
+    }
+  } else {
+    petImage.innerHTML = '<img src="img/clean.gif" />'
+    petStatus.innerHTML = "I like bathes!"
+  }
+  
+  happyLabel.innerHTML = `${happiness}`
+  cleanLabel.innerHTML = `${cleaness}`
   fullLabel.innerHTML = `${fullness}`
+  energyLabel.innerHTML = `${energy}`
 })
 
 singButton.addEventListener("click", (e)=> {
   energy += 10
-  energyLabel.innerHTML = `${energy}`
   cleaness -= 2
-  cleanLabel.innerHTML = `${cleaness}`
   happiness -= 2
-  happyLabel.innerHTML = `${happiness}`
   fullness -= 3
+  
+  if (happiness < 1 | fullness < 1 | cleaness < 1) {
+    petButton.disabled = "True"
+    feedButton.disabled = "True"
+    bathButton.disabled = "True"
+    singButton.disabled = "True"
+    petImage.innerHTML = '<img src="img/ghost.gif" />'
+    petStatus.innerHTML = "Goodbye..."
+  } else if (happiness < 40 | fullness < 40 | cleaness < 40) {
+    petImage.innerHTML = '<img src="img/angry.gif" />'
+    happiness -= 2
+    energy -= 5
+    if (happiness < 40) {
+      petStatus.innerHTML = "I'm too upset!"
+    } else if (fullness < 40) {
+      petStatus.innerHTML = "I'm too hungry!"
+    } else if (cleaness < 40) {
+      petStatus.innerHTML = "Clean me!"
+    }
+  } else {
+    petImage.innerHTML = '<img src="img/sleep.gif" />'
+    petStatus.innerHTML = "zzzZZZzzzZz"
+  }
+  
+  happyLabel.innerHTML = `${happiness}`
+  cleanLabel.innerHTML = `${cleaness}`
   fullLabel.innerHTML = `${fullness}`
+  energyLabel.innerHTML = `${energy}`
 })
