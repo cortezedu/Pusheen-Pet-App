@@ -16,10 +16,10 @@ const petImage = document.querySelector("#pet-image")
 const petName = document.querySelector("#pet-name")
 const interactLabel = document.querySelector("#interact-label")
 
-let happiness = 50
-let fullness = 50
-let cleaness = 50
-let energy = 50
+let happiness = 75
+let fullness = 75
+let cleaness = 75
+let energy = 75
 
 
 petName.addEventListener("change", (e)=> {
